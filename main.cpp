@@ -23,41 +23,41 @@ void playGame(int chances) { //this starts the void function playGame, and initi
     int userGuess; //creates a integer that allows the user to guess.
 
     for (int attempts = 0; attempts < chances; ++attempts) { //this will count how many chances the user has left.
-        std::cout << "Enter your guess: "; 
-        std::cin >> userGuess;
+        std::cout << "Enter your guess: ";  //this calls out "Enter your guess:", so the user can see.
+        std::cin >> userGuess; // this allows the user to guess what they think it is.
 
-        if (userGuess == numberToGuess) {
-            std::cout << "Congratulations! You guessed the correct number!\n";
-            return;
-        } else if (userGuess < numberToGuess) {
-            std::cout << "Incorrect! The number is greater than " << userGuess << ".\n";
-        } else {
-            std::cout << "Incorrect! The number is less than " << userGuess << ".\n";
+        if (userGuess == numberToGuess) { //if the user guesses the correct number.
+            std::cout << "Congratulations! You guessed the correct number!\n"; // tells the user that they have guessed right.
+            return; //ends the function.
+        } else if (userGuess < numberToGuess) { // or if it is an incorrect guess.
+            std::cout << "Incorrect! The number is greater than " << userGuess << ".\n"; //then tells the user that they guessed wrong, and the number they tried guessing is greater than what they gave.
+        } else { // or else
+            std::cout << "Incorrect! The number is less than " << userGuess << ".\n"; // it will tell the user if the number is less than their guess.
         }
     }
-    std::cout << "Sorry! You've used all your chances. The correct number was " << numberToGuess << ".\n";
+    std::cout << "Sorry! You've used all your chances. The correct number was " << numberToGuess << ".\n"; // tells the user that they failed.
 }
-int main() {
-    srand(static_cast<unsigned int>(time(0)));
-    displayWelcomeMessage();
+int main() { //starts the main function.
+    srand(static_cast<unsigned int>(time(0))); // initializes the srand function to cast a static and unsigned integer with time 0, to start the displayWelcomeMessage() function.
+    displayWelcomeMessage(); // displayWelcomeMessage
 
-    int difficulty = getDifficultyLevel();
-    int chances;
+    int difficulty = getDifficultyLevel(); //Creates an integer called "getDifficultyLevel()".
+    int chances; //Creates an integer called "chances".
 
-    switch (difficulty) {
-      case 1:
+    switch (difficulty) { //switches to the difficulty class
+      case 1: //case 1 retents the chances for Easy
       chances = 10;
       std::cout << "You have selected: Easy\n";
       break;
-      case 2:
+      case 2: //case 2 retents the chances for Medium
       chances = 5;
       std::cout << "You have selected: Medium\n";
       break;
-      case 3:
-      chances = 3;
+      case 3: //case 3 retents the chances for Hard.
+      chances = 3; 
       std::cout << "You have selected: Hard\n"; 
       break;
     }
-    playGame(chances);
-return 0;
+    playGame(chances); // starts the chances game.
+return 0; // end all.
 }
