@@ -1,27 +1,29 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <iostream> // include the input-output stream library.
+#include <cstdlib> // include the library for rand and srand
+#include <ctime> // include the library for time functions
 //Copyright by Tom Sullivan, Number Guessing Game from Roadmap.sh .
-void displayWelcomeMessage() {
-    std::cout << "Welcome to the Number Guessing Game" <<std::endl;
-    std::cout << "I am thinking of a number between 1 and 1 hundred." << std::endl;
-}
 
-int getDifficultyLevel() {
-    int choice;
-    std::cout << "Please select the difficulty:\n";
-    std::cout << "1. Easy (10 chances)\n";
-    std::cout << "2. Medium (5 chances)\n";
-    std::cout << "3. Hard (3 chances)\n";
-    std::cin >> choice;
-    return choice;
+// this will display the welcome message, as you can see.
+void displayWelcomeMessage() { //starts the function displayWelcomeMessage()
+    std::cout << "Welcome to the Number Guessing Game" <<std::endl; //this will print the sentence: "Welcome to the Number Guessing Game" then end the line using std::endl;.
+    std::cout << "I am thinking of a number between 1 and 1 hundred." << std::endl; //this will print the sentence: "I am thinking of a number between 1 and 1 hundred." then end the line using std::endl;.
+} //end the function.
+
+int getDifficultyLevel() { //this starts the function getDifficultyLevel()
+    int choice; //creates the integer "choice";
+    std::cout << "Please select the difficulty:\n"; //this will print the line for the integer "choice", first stating "Please select the difficulty."
+    std::cout << "1. Easy (10 chances)\n"; //this will print the line for the integer "choice" as the first option that the user can choose.
+    std::cout << "2. Medium (5 chances)\n"; // this will print the line for the integer "choice" as the second option that the user can choose.
+    std::cout << "3. Hard (3 chances)\n"; // this will print the line for the integer "choice" as the third and final option that the user can choose.
+    std::cin >> choice; // this allows the user to type and choose their option by using the <iostream> header, and by using the cin function.
+    return choice;  // this will finalize the function getDifficultyLevel()
 } 
-void playGame(int chances) {
-    int numberToGuess = rand() % 100 + 1; 
-    int userGuess;
+void playGame(int chances) { //this starts the void function playGame, and initializes a integer for the chances.
+    int numberToGuess = rand() % 100 + 1; //this creates the integer function "numberToGuess", which will randomly select a number between 1 and 1 hundred.
+    int userGuess; //creates a integer that allows the user to guess.
 
-    for (int attempts = 0; attempts < chances; ++attempts) {
-        std::cout << "Enter your guess: ";
+    for (int attempts = 0; attempts < chances; ++attempts) { //this will count how many chances the user has left.
+        std::cout << "Enter your guess: "; 
         std::cin >> userGuess;
 
         if (userGuess == numberToGuess) {
